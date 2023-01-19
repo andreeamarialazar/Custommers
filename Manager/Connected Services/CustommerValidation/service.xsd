@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Engine.DataContracts" />
+  <xs:element name="ValidateName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Engine.DataContracts" minOccurs="0" name="custommerName" nillable="true" type="q1:CustommerName" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Engine.DataContracts" minOccurs="0" name="ValidateNameResult" nillable="true" type="q2:ArrayOfError" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Validate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Engine.DataContracts" minOccurs="0" name="custommer" nillable="true" type="q3:Custommer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Engine.DataContracts" minOccurs="0" name="ValidateResult" nillable="true" type="q4:ArrayOfError" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
