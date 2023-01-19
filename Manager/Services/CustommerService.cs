@@ -2,6 +2,7 @@
 using Manager.ServiceContracts;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Utilities;
 namespace Manager.Services {
     public class CustommerService : ICustommerService { 
@@ -26,12 +27,12 @@ namespace Manager.Services {
             CustommerResource.Custommer custommer = custommerResource.GetCustommerByID(ID);
             return custommer.MapObject<Manager.DataContracts.Custommer>(); } 
         
-        public void AddCustommer(Custommer custommer) { 
-            CustommerResource.Custommer newCustommer = custommer.MapObject<CustommerResource.Custommer>();
-            custommerResource.InsertCustommer(newCustommer); 
+   //     public void AddCustommer(Custommer custommer) { 
+  //          CustommerResource.Custommer newCustommer = custommer.MapObject<CustommerResource.Custommer>();
+   //         custommerResource.InsertCustommer(newCustommer); 
         
         
-        }
+   //     }
 
         public Manager.DataContracts.Error[] AddCustommer(Custommer custommer)
         {

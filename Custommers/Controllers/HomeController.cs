@@ -8,13 +8,13 @@ namespace Custommers.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly CustommerService.ICustommerService custommerServiceClient; 
+        private readonly ServiceProxy.CustommerService.CustommerServiceProxy custommerServiceProxy; 
         public HomeController() 
-        { this.custommerServiceClient = new CustommerService.CustommerServiceClient(); 
+        { this.custommerServiceProxy = new ServiceProxy.CustommerService.CustommerServiceProxy(); 
         } 
         public ActionResult Index()
-        { CustommerService.Custommer[] 
-                custommers = custommerServiceClient.GetCustommers();
+        { ServiceProxy.CustommerService.Custommer[] 
+                custommers = custommerServiceProxy.GetCustommers();
             return View(custommers); 
         }
 
@@ -37,9 +37,12 @@ namespace Custommers.Controllers
         // POST: Test/Create
         [HttpPost] 
         public ActionResult Create(FormCollection collection) { 
-            try { CustommerService.Custommer custommer = new CustommerService.Custommer(); 
-                UpdateModel(custommer); 
-                CustommerService.Error[] errors = custommerServiceClient.AddCustommer(custommer); 
+            try {
+                ServiceProxy.CustommerService.Custommer custommer = new ServiceProxy.CustommerService.Custommer();
+                UpdateModel(custommer);
+                ServiceProxy.CustommerService.Error[] errors =
+               custommerServiceProxy.AddCustommer(custommer);
+
                 if (errors.Any()) { ViewData["Error"] = errors; return View(custommer); 
                 }else return RedirectToAction("Index"); 
             } catch { return View();
