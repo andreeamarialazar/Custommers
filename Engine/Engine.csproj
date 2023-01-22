@@ -34,6 +34,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
@@ -55,12 +58,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="CustommerEngineService.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="CustommerEngineServiceInstaller.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="CustommerEngineService.cs" />
+    <Compile Include="CustommerEngineServiceInstaller.cs" />
     <Compile Include="DataContracts\Custommer.cs" />
     <Compile Include="DataContracts\CustommerName.cs" />
     <Compile Include="DataContracts\Error.cs" />
@@ -69,6 +68,10 @@
     <Compile Include="Services\CustommerValidationService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ResourceProxy\ResourceProxy.csproj">
+      <Project>{0817e2c1-1198-40c0-9bd0-a68458586432}</Project>
+      <Name>ResourceProxy</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Utilities\Utilities.csproj">
       <Project>{54175286-359e-46ed-84d5-88ed859161c2}</Project>
       <Name>Utilities</Name>
@@ -84,6 +87,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

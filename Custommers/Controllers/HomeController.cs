@@ -8,14 +8,16 @@ namespace Custommers.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ServiceProxy.CustommerService.CustommerServiceProxy custommerServiceProxy; 
-        public HomeController() 
-        { this.custommerServiceProxy = new ServiceProxy.CustommerService.CustommerServiceProxy(); 
-        } 
+        private readonly ServiceProxy.CustommerServiceProxy custommerServiceProxy;
+        public HomeController()
+        {
+            this.custommerServiceProxy = new ServiceProxy.CustommerServiceProxy();
+        }
         public ActionResult Index()
-        { ServiceProxy.CustommerService.Custommer[] 
-                custommers = custommerServiceProxy.GetCustommers();
-            return View(custommers); 
+        {
+            ServiceProxy.Custommer[]
+                  custommers = custommerServiceProxy.GetCustommers();
+            return View(custommers);
         }
 
         public ActionResult About()
@@ -33,20 +35,29 @@ namespace Custommers.Controllers
         }
 
         // GET: Test/Create
-        public ActionResult Create() { return View(); } 
+        public ActionResult Create() { return View(); }
         // POST: Test/Create
-        [HttpPost] 
-        public ActionResult Create(FormCollection collection) { 
-            try {
-                ServiceProxy.CustommerService.Custommer custommer = new ServiceProxy.CustommerService.Custommer();
+        [HttpPost]
+        public ActionResult Create(FormCollection collection)
+        {
+            try
+            {
+                ServiceProxy.Custommer custommer = new ServiceProxy.Custommer();
                 UpdateModel(custommer);
-                ServiceProxy.CustommerService.Error[] errors =
+                ServiceProxy.Error[] errors =
                custommerServiceProxy.AddCustommer(custommer);
 
-                if (errors.Any()) { ViewData["Error"] = errors; return View(custommer); 
-                }else return RedirectToAction("Index"); 
-            } catch { return View();
-            } }
+                if (errors.Any())
+                {
+                    ViewData["Error"] = errors; return View(custommer);
+                }
+                else return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
 
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Service_Proxy
+namespace EngineProxy
 {
     public class Class1
     {

@@ -73,6 +73,14 @@
     <Compile Include="Services\CustommerService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EngineProxy\EngineProxy.csproj">
+      <Project>{f6e81984-b1b3-459a-b290-81412f489d5f}</Project>
+      <Name>EngineProxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ResourceProxy\ResourceProxy.csproj">
+      <Project>{0817e2c1-1198-40c0-9bd0-a68458586432}</Project>
+      <Name>ResourceProxy</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Utilities\Utilities.csproj">
       <Project>{54175286-359e-46ed-84d5-88ed859161c2}</Project>
       <Name>Utilities</Name>

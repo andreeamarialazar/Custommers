@@ -3,7 +3,7 @@ using System.ServiceModel; //comunicarea cu dintre servicii
 using Newtonsoft.Json; // serializare si deserializare de date
 using Utilities; // object mapping of values
 //fiecare serviciu este recomandat sa aiba subnamespace separat
-namespace ServiceProxy.CustommerService
+namespace ServiceProxy
 {
     #region ServiceModels
     public class Custommer
