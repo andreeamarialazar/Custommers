@@ -163,6 +163,9 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Create.cshtml" />
+    <Content Include="Views\Home\Edit.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Home\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -182,6 +185,10 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ResourceProxy\ResourceProxy.csproj">
+      <Project>{0817e2c1-1198-40c0-9bd0-a68458586432}</Project>
+      <Name>ResourceProxy</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Service Proxy\ServiceProxy.csproj">
       <Project>{cc1b3b01-b774-4df4-9479-a9911543bc50}</Project>
       <Name>ServiceProxy</Name>

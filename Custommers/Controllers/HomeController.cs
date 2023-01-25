@@ -9,9 +9,11 @@ namespace Custommers.Controllers
     public class HomeController : Controller
     {
         private readonly ServiceProxy.CustommerServiceProxy custommerServiceProxy;
+        private readonly ResourceProxy.CustommerResourceProxy custommerResourceProxy;
         public HomeController()
         {
             this.custommerServiceProxy = new ServiceProxy.CustommerServiceProxy();
+            this.custommerResourceProxy = new ResourceProxy.CustommerResourceProxy();
         }
         public ActionResult Index()
         {
@@ -57,6 +59,59 @@ namespace Custommers.Controllers
             {
                 return View();
             }
+        }
+
+        // GET: Test/EDIT
+        public ActionResult Edit(Guid ID) {
+
+            ServiceProxy.Custommer custommer = new ServiceProxy.Custommer();
+            custommer= custommerServiceProxy.GetCustommerByID(ID);
+            
+            return View(custommer); }
+        // POST: Test/EDIT
+        [HttpPost]
+        public ActionResult Edit(FormCollection collection)
+        {
+            try
+            {
+                ResourceProxy.Custommer custommer = new ResourceProxy.Custommer();
+                UpdateModel(custommer);
+               
+               custommerResourceProxy.UpdateCustommer(custommer);
+
+               
+               return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        //GET: /DETEILS
+        public ActionResult Details(Guid ID)
+        {
+
+            ServiceProxy.Custommer custommer = new ServiceProxy.Custommer();
+            custommer = custommerServiceProxy.GetCustommerByID(ID);
+
+            return View(custommer);
+        }
+
+        public ActionResult Delete(Guid ID)
+        {
+            try
+            {
+                custommerResourceProxy.DeleteCustommer(ID);
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+
+            
         }
 
     }

@@ -150,7 +150,7 @@ namespace ResourceProxy
 
                 client.DeleteCustommer(ID);
 
-               // CloseChannel();
+                CloseChannel();
 
             }
             catch (Exception exception)
